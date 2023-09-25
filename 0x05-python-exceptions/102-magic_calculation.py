@@ -5,15 +5,14 @@ def magic_calculation(a, b):
     """
     Bytecode function for power of and division
     """
-    res = 0
+    calculation = 0
     for i in range(1, 3):
         try:
             if i > a:
-                raise Exception('Error')
+                raise Exception('Too far')
             else:
-                res += a ** b / i
-        except Exception as e:
-            res = b + a
-            print("Exception: {}".format(e), file=sys.stderr)
+                calculation += a ** b / i
+        except:
+            calculation = b + a
             break
-    return (res)
+    return (calculation)
