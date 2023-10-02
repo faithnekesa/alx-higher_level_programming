@@ -1,0 +1,103 @@
+Module: '0-add_integer'
+
+Usage: This module defines a function for addition 'add_integer(a, b=98)'
+
+Function importation from the module:
+	 >>> add_integer = __import__("0-add_integer").add_integer
+
+Validate module docstring:
+	 >>> m = __import__("0-add_integer").__doc__
+	 >>> len(m) > 1
+	 True
+
+Validate function docstring:
+	 >>> f = __import__("0-add_integer").add_integer.__doc__
+         >>> len(f) > 1
+         True
+
+Validate integer addition:
+	 >>> add_integer(2, 3)
+	 5
+
+Validate addition of positive with negative numbers:
+	 >>> add_integer(2, -4)
+	 -2
+
+Validate addition of negative with positive numbers:
+	 >>> add_integer(-6, 8)
+	 2
+
+Validate addition of float with integer numbers:
+	 >>> add_integer(2.1, 4)
+	 6
+
+Validate addition of numbers with multiple in a range:
+	 >>> [add_integer(i, i ** 2) for i in range(6)]
+	 [0, 2, 6, 12, 20, 30]
+
+Validate addition of integer number with float number:
+	 >>> add_integer(2, 1.8)
+	 3
+
+Validate addition of numbers of type float:
+	 >>> add_integer(1.0, 2.0)
+	 3
+
+Validate NaN:
+	 >>> add_integer(1, float('nan'))
+	 Traceback (most recent call last):
+	 ...
+	 ValueError: cannot convert float NaN to integer
+
+Validate addition of very long int and a standard int:
+	 >>> add_integer(999999999999999, 1)
+	 1000000000000000
+
+Validate addition of non-number with number:
+	 >>> add_integer([1], 2)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: a must be an integer
+
+Validate number with non-number:
+	 >>> add_integer(3, "2")
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: b must be an integer
+
+Validate addition of non-number with non-number:
+	 >>> add_integer((2,), {"key": "value"})
+         Traceback (most recent call last):
+         ...
+         TypeError: a must be an integer
+
+Validate the number of args passed:
+	 >>> add_integer()
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
+
+Validate when only one arg is passed:
+	 >>> add_integer(1)
+	 Traceback (most recent call last):
+         ...
+	 TypeError: add_integer() missing 1 required positional argument: 'b'
+
+Validate when more than 2 args are passed:
+	 >>> add_integer(1, 2, 3)
+         Traceback (most recent call last):
+         ...
+         TypeError: add_integer() takes 2 positional arguments but 3 were given
+         
+Validate addition of number with bool:
+	 >>> add_integer(0, False)
+         Traceback (most recent call last):
+         ...
+         TypeError: b must be an integer
+         
+Validate addition of bool value with number:
+	 >>> add_integer(True, 1)
+	 Traceback (most recent call last):
+         ...
+         TypeError: a must be an integer
+
