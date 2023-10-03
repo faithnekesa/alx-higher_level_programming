@@ -1,0 +1,55 @@
+Module: '3-say_my_name'
+
+
+Function importation from the module:
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Validate module docstring:
+	 >>> m = __import__("3-say_my_name").__doc__
+	 >>> len(m) > 1
+	 True
+
+Validate function docstring:
+	 >>> f = __import__("3-say_my_name").say_my_name.__doc__
+         >>> len(f) > 1
+         True
+		 
+validate passing last name as none:
+	 >>> say_my_name("Faith", None)
+	 Traceback (most recent call last):
+         ...
+         TypeError: last_name must be a string
+		 
+validate passing first name as none:
+	 >>> say_my_name(None, "Faith")
+	 Traceback (most recent call last):
+         ...
+         TypeError: first_name must be a string
+
+validate passing non-string as last name:
+         >>> say_my_name("Faith", [4])
+         Traceback (most recent call last):
+         ...
+         TypeError: last_name must be a string
+		 
+Validate passing non string as first name:
+         >>> say_my_name(3, "Faith")
+         Traceback (most recent call last):
+         ...
+         TypeError: first_name must be a string
+
+Validate regular user:
+	 >>> say_my_name("Faith", "Wanjala")
+	 My name is Faith Wanjala
+	 
+Validate when more than two args are passed:
+	 >>> say_my_name("Faith", "Wanjala", "Ne")
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+	 
+Validate when only one name arg is passed:
+	 >>> say_my_name("Faith")
+	 My name is Faith 
+
+
