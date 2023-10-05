@@ -1,0 +1,79 @@
+Module: 5-text_indentation'
+
+Usage: A function that prints a text with 2 new lines after each of these characters:., ? and :
+
+Function importation from the module:
+	>>> text_indentation = __import__("5-text_indentation").print_square
+
+Validate module docstring:
+	 >>> m = __import__("4-text_indentation").__doc__
+	 >>> len(m) > 1
+	 True
+
+Validate function docstring:
+	 >>> f = __import__("5-text_indentation").text_indentation.__doc__
+         >>> len(f) > 1
+         True	 
+
+Validate when no args are passed:
+	 >>> text_indentation()
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: text_indentation() Needs at least 1 argument
+
+Validate when too many args are passed:
+	 >>> text_indentation("Hello", "Hi")
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: text_indentation() takes only 1 argument but 2 were passed
+
+Validate when None is passed:
+	 >>> text_indentation(None)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: text must be a string
+	 
+Validate when there's a newline at the end:
+	 >>> text_indentation("Hello world\n")
+	 Hello world
+	 <BLANKLINE>
+	 <BLANKLINE>
+
+Validate when there's is a newline at the beginning:
+	 >>> text_indentation(" \n Hello World)
+	 <BLANKLINE>
+	  Hello World?
+	 <BLANKLINE>
+ 
+Validate when there is a newline in the middle:
+	 >>> text_indentation("Hello\n world")
+	 Hello
+	 <BLANKLINE>
+	 world
+	 <BLANKLINE>
+	 
+Validate when a non-string is passed:
+	 >>> text_indentation(1)
+         Traceback (most recent call last):
+         ...
+         TypeError: text must be a string
+
+Validate when there are multiple spaces passed:
+	 >>> text_indentation("   Hello  world   ")
+	 Hello
+	 <BLANKLINE>
+	 world
+	 <BLANKLINE>
+
+Validate when standalone special chars are passed:
+	 >>> text_indentation(" ? . : ")
+	 ?
+	 <BLANKLINE>
+	 .
+	 <BLANKLINE>
+	 :
+	 <BLANKLINE>
+
+Validate when one word is passed:
+	 >>> text_indentation("Hello")
+	 Hello
