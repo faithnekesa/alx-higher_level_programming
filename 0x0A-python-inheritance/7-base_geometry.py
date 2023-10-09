@@ -9,7 +9,7 @@ class BaseGeometry:
         """Empty function for area"""
         raise Exception("area() is not implemented")
         
-     def integer_validator(self, name, value):
+    def integer_validator(self, name, value):
         """Function that validates a parameter as an int
 
         Args:
