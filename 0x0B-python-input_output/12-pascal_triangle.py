@@ -20,4 +20,3 @@ def pascal_triangle(n):
         tempTriangle.append(1)
         triangles.append(tempTriangle)
     return triangles
-
