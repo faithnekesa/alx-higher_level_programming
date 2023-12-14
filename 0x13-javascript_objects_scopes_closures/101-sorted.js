@@ -5,9 +5,9 @@
 const { dict } = require('./101-data.js');
 const myDict = {};
 for (const N in dict) {
-    if (myDict[dict[N]] === undefined) {
-	myDict[dict[N]] = [];
-    }
-    myDict[dict[N]].push(N);
+  if (myDict[dict[N]] === undefined) {
+    myDict[dict[N]] = [];
+  }
+  myDict[dict[N]].push(N);
 }
 console.log(myDict);
